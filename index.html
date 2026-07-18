@@ -2193,10 +2193,24 @@ body:not(.is-home) .village{
   margin-top:18px !important;
   padding-top:12px !important;
 }
+#page-4 .feedback-invite .btn.closing-feedback{
+  width:min(100%, 240px);
+  min-height:44px;
+  padding:10px 16px !important;
+  font-size:14px !important;
+  letter-spacing:.055em;
+  box-shadow:0 8px 20px rgba(176,127,51,.22), 0 0 0 1px rgba(255,255,255,.24) inset !important;
+}
 @media (max-width:520px){
   #page-4 .feedback-invite{
     margin-top:11px !important;
     padding-top:7px !important;
+  }
+  #page-4 .feedback-invite .btn.closing-feedback{
+    width:min(100%, 220px);
+    min-height:44px;
+    padding:10px 14px !important;
+    font-size:13.5px !important;
   }
 }
 
@@ -2230,11 +2244,8 @@ body.map-guide-open{ overflow:hidden; }
 .map-guide-dialog:focus{ outline:none; }
 .map-guide-dialog .eyebrow{ margin-bottom:8px; }
 .map-guide-title{ margin:0; }
-.map-guide-title:focus-visible{
-  outline:2px solid var(--gold);
-  outline-offset:6px;
-  border-radius:4px;
-}
+.map-guide-title:focus,
+.map-guide-title:focus-visible{ outline:none; }
 .map-guide-lead{ margin-top:8px; font-size:14.5px; color:var(--brown-soft); }
 .map-guide-instructions{
   margin:20px auto 0;
@@ -2307,42 +2318,46 @@ body.map-guide-open{ overflow:hidden; }
   outline-offset:4px;
 }
 @media (max-width:430px){
-  .map-guide-overlay{ padding:10px 12px; align-items:flex-start; }
+  .map-guide-overlay{ padding:10px 14px; align-items:flex-start; }
   .map-guide-dialog{
-    width:min(100%, 360px);
+    width:min(100%, 330px);
     margin:auto 0;
     max-height:calc(100dvh - 20px);
-    padding:21px 17px 17px;
-    border-radius:23px;
-    border-color:rgba(199,154,78,.30);
-    box-shadow:0 20px 58px rgba(74,51,32,.18), 0 0 0 1px rgba(255,255,255,.72) inset;
+    padding:18px 16px 16px;
+    border-radius:22px;
+    border-color:rgba(199,154,78,.25);
+    box-shadow:0 18px 50px rgba(74,51,32,.16), 0 0 0 1px rgba(255,255,255,.76) inset;
   }
-  .map-guide-lead{ font-size:13.5px; }
-  .map-guide-instructions{ width:min(100%, 300px); margin-top:15px; gap:5px; }
-  .map-guide-instruction{ grid-template-columns:21px minmax(0,1fr); gap:7px; font-size:13px; line-height:1.65; }
-  .map-guide-note{ margin-top:5px; font-size:12px; }
-  .map-guide-grid{ width:min(100%, 252px); gap:10px; margin-top:17px; }
+  .map-guide-dialog .eyebrow{ margin-bottom:5px; font-size:11px; letter-spacing:.18em; }
+  .map-guide-title{ font-size:23px; line-height:1.35; letter-spacing:.015em; text-shadow:none; }
+  .map-guide-lead{ margin-top:6px; font-size:12.5px; }
+  .map-guide-instructions{ width:min(100%, 280px); margin-top:13px; gap:4px; }
+  .map-guide-instruction{ grid-template-columns:19px minmax(0,1fr); gap:6px; font-size:12.5px; line-height:1.58; }
+  .map-guide-symbol{ font-size:13px; }
+  .map-guide-note{ margin-top:4px; font-size:11.5px; }
+  .map-guide-grid{ width:min(100%, 210px); gap:8px; margin-top:14px; }
   .map-guide-grid li{
-    padding:5px;
-    border-color:rgba(176,127,51,.40);
-    background:linear-gradient(145deg, rgba(255,252,245,.92), rgba(249,240,222,.72));
-    box-shadow:0 6px 18px rgba(176,127,51,.055), 0 0 0 1px rgba(255,255,255,.78) inset;
-    font-size:13.5px;
+    padding:4px;
+    border-color:rgba(176,127,51,.34);
+    background:linear-gradient(145deg, rgba(255,253,248,.96), rgba(249,240,222,.66));
+    box-shadow:0 5px 14px rgba(176,127,51,.045), 0 0 0 1px rgba(255,255,255,.82) inset;
+    font-size:12.5px;
     font-weight:550;
-    letter-spacing:.025em;
+    letter-spacing:.02em;
   }
-  .map-guide-writing{ width:min(100%, 300px); margin-top:17px; padding:13px 7px; }
-  .map-guide-writing h3{ font-size:14.5px; }
-  .map-guide-sentence{ margin-top:5px; font-size:14.5px; }
-  .map-guide-example{ margin-top:5px; font-size:13px; }
-  .map-guide-small{ font-size:12px; }
-  .map-guide-actions{ margin-top:17px; }
-  .map-guide-actions .btn{ min-width:168px; padding-top:12px; padding-bottom:12px; font-size:15px; }
+  .map-guide-writing{ width:min(100%, 280px); margin-top:15px; padding:11px 6px; }
+  .map-guide-writing h3{ font-size:14px; }
+  .map-guide-sentence{ margin-top:4px; font-size:14px; }
+  .map-guide-example{ margin-top:4px; font-size:12.5px; }
+  .map-guide-small{ font-size:11.5px; }
+  .map-guide-actions{ margin-top:15px; }
+  .map-guide-actions .btn{ min-width:160px; padding-top:11px; padding-bottom:11px; font-size:14.5px; }
+  .map-guide-actions .btn-link{ margin-top:9px; font-size:12.5px; }
 }
 @media (max-width:340px){
-  .map-guide-dialog{ padding-left:15px; padding-right:15px; }
-  .map-guide-grid{ width:min(100%, 246px); gap:9px; }
-  .map-guide-grid li{ padding:4px; font-size:13px; }
+  .map-guide-dialog{ padding-left:14px; padding-right:14px; }
+  .map-guide-grid{ width:min(100%, 204px); gap:7px; }
+  .map-guide-grid li{ padding:3px; font-size:12px; }
 }
 </style>
 </head>
@@ -2679,7 +2694,7 @@ function roundRequiredStep(roundIndex){
 }
 function canOpenPage(pageIndex){ return pageRequiredStep(pageIndex) <= currentActivityStep; }
 function canOpenRound(roundIndex){
-  if(roundIndex === 0) return currentActivityStep >= 4 && currentActivityStep < 8;
+  if(roundIndex === 0) return currentActivityStep >= 4;
   if(roundIndex === 1) return currentActivityStep >= 8;
   return false;
 }
