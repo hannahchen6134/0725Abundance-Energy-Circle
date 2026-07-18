@@ -2730,9 +2730,9 @@ function onlyNeedText(){
   return '帶著今天收到的豐盛，回到生活';
 }
 function openRoundText(){
-  if(currentActivityStep >= 8) return '目前進行：第二輪';
-  if(currentActivityStep >= 4) return '目前進行：第一輪';
-  return '交流題目尚未開放';
+  if(currentActivityStep < 4) return '交流題目尚未開放';
+  if(currentPage === 2) return currentRound === 1 ? '目前進行：第二輪' : '目前進行：第一輪';
+  return currentActivityStep >= 8 ? '目前進行：第二輪' : '目前進行：第一輪';
 }
 function updateButtonLabel(el, open){
   var openLabel = el.getAttribute('data-label-open');
