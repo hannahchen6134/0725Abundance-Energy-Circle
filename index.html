@@ -2180,6 +2180,10 @@ body:not(.is-home) .village{
   .round-reminder,
   .blessing-note{ font-size:13px; }
 }
+@media (max-width:340px){
+  #page-2 .q-list li{ font-size:14px; letter-spacing:0; padding-left:29px; text-wrap:pretty; }
+  #page-4 .feedback-title{ font-size:17px !important; letter-spacing:0; }
+}
 </style>
 </head>
 <body class="is-home">
@@ -2267,7 +2271,7 @@ body:not(.is-home) .village{
           <li class="flow-item anim-in" data-step="3" style="animation-delay:.26s"><span class="flow-num">3</span><span class="flow-name">圈選我的豐盛接收地圖</span></li>
           <li class="flow-item flow-link anim-in" data-step="4" style="animation-delay:.34s" data-round="0" role="button" tabindex="0" aria-label="第一輪同色豐盛交流，點進去看題目"><span class="flow-num">4</span><span class="flow-name">第一輪｜同色豐盛交流</span><span class="flow-go"><span class="flow-hint">題目</span><span class="flow-arrow">›</span></span></li>
           <li class="flow-item anim-in" data-step="5" style="animation-delay:.42s"><span class="flow-num">5</span><span class="flow-name">寫下一句本週接收練習</span></li>
-          <li class="flow-item anim-in" data-step="6" style="animation-delay:.50s"><span class="flow-num">6</span><span class="flow-name">稍作休息</span></li>
+          <li class="flow-item anim-in" data-step="6" style="animation-delay:.50s"><span class="flow-num">6</span><span class="flow-name">中場休息補充能量</span></li>
           <li class="flow-item anim-in" data-step="7" style="animation-delay:.58s"><span class="flow-num">7</span><span class="flow-name">抽豐盛提醒卡，準備換組</span></li>
           <li class="flow-item flow-link anim-in" data-step="8" style="animation-delay:.66s" data-round="1" role="button" tabindex="0" aria-label="第二輪不同色豐盛交流，點進去看題目"><span class="flow-num">8</span><span class="flow-name">第二輪｜不同色豐盛交流</span><span class="flow-go"><span class="flow-hint">題目</span><span class="flow-arrow">›</span></span></li>
           <li class="flow-item flow-link anim-in" data-step="9" style="animation-delay:.74s" data-page="3" role="button" tabindex="0" aria-label="讓豐盛流動、接收更多，點進去看"><span class="flow-num">9</span><span class="flow-name">讓豐盛流動、接收更多</span><span class="flow-go"><span class="flow-hint">祝福</span><span class="flow-arrow">›</span></span></li>
@@ -2342,7 +2346,7 @@ body:not(.is-home) .village{
     <div class="inner">
       <div class="center fade-in">
         <span class="eyebrow">Share</span>
-        <h2>讓祝福在人與人之間流動</h2>
+        <h2>讓豐盛流動、接收更多</h2>
         <div class="divider"></div>
         <p class="muted center">請在豐盛提醒卡背面，<br>寫下一句送給另一位參加者的祝福。</p>
       </div>
@@ -2376,7 +2380,6 @@ body:not(.is-home) .village{
         <div class="divider"></div>
         <p>謝謝你今天來到這裡，<br>真誠分享，也好好聽見了彼此。</p>
         <p>願今天收到的祝福與豐盛，<br>慢慢回到接下來的生活裡。</p>
-                <div class="closing-seal">願今天收到的豐盛，慢慢回到生活裡。</div>
         <div class="feedback-invite">
           <span class="feedback-kicker">離開前的小邀請</span>
           <h3 class="feedback-title">如果還沒填，歡迎留下今日回饋</h3>
@@ -2411,7 +2414,7 @@ body:not(.is-home) .village{
    Google Sheet 後台：在 B2 下拉選擇目前活動步驟 1–10。
    活動步驟：
    1 為什麼我們今天要相聚 / 2 安定下來，進入豐盛冥想 / 3 圈選我的豐盛接收地圖 / 4 第一輪｜同色豐盛交流
-   5 寫下一句本週接收練習 / 6 稍作休息 / 7 抽豐盛提醒卡，準備換組 / 8 第二輪｜不同色豐盛交流
+   5 寫下一句本週接收練習 / 6 中場休息補充能量 / 7 抽豐盛提醒卡，準備換組 / 8 第二輪｜不同色豐盛交流
    9 讓豐盛流動、接收更多 / 10 回饋與感謝
    網站每 5 秒讀取 CSV 第二列第二欄（B2），並保留 localStorage 快取。
  */
@@ -2451,7 +2454,7 @@ var ACTIVITY_STEP_NAMES = [
   '圈選我的豐盛接收地圖',
   '第一輪｜同色豐盛交流',
   '寫下一句本週接收練習',
-  '稍作休息',
+  '中場休息補充能量',
   '抽豐盛提醒卡，準備換組',
   '第二輪｜不同色豐盛交流',
   '讓豐盛流動、接收更多',
