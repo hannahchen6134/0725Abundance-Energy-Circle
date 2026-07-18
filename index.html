@@ -9,6 +9,7 @@
 <meta name="description" content="一場透過冥想、豐盛提醒卡與真實交流，看見生活中的支持，練習接收更多的小聚。">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#f6efe1">
+<link rel="icon" href="data:,">
 <meta property="og:title" content="豐盛能量交流小聚｜初星群 Starry Dawn Circle">
 <meta property="og:site_name" content="初星群 Starry Dawn Circle">
 <meta property="og:description" content="一場透過冥想、豐盛提醒卡與真實交流，看見生活中的支持，練習接收更多的小聚。">
@@ -2269,8 +2270,8 @@ body:not(.is-home) .village{
           <li class="flow-item anim-in" data-step="6" style="animation-delay:.50s"><span class="flow-num">6</span><span class="flow-name">稍作休息</span></li>
           <li class="flow-item anim-in" data-step="7" style="animation-delay:.58s"><span class="flow-num">7</span><span class="flow-name">抽豐盛提醒卡，準備換組</span></li>
           <li class="flow-item flow-link anim-in" data-step="8" style="animation-delay:.66s" data-round="1" role="button" tabindex="0" aria-label="第二輪不同色豐盛交流，點進去看題目"><span class="flow-num">8</span><span class="flow-name">第二輪｜不同色豐盛交流</span><span class="flow-go"><span class="flow-hint">題目</span><span class="flow-arrow">›</span></span></li>
-          <li class="flow-item flow-link anim-in" data-step="9" style="animation-delay:.74s" data-page="3" role="button" tabindex="0" aria-label="讓祝福在人與人之間流動，點進去看"><span class="flow-num">9</span><span class="flow-name">讓祝福在人與人之間流動</span><span class="flow-go"><span class="flow-hint">祝福</span><span class="flow-arrow">›</span></span></li>
-          <li class="flow-item flow-link anim-in" data-step="10" style="animation-delay:.82s" data-page="4" role="button" tabindex="0" aria-label="帶回生活、回饋與感謝，點進去看"><span class="flow-num">10</span><span class="flow-name">帶回生活、回饋與感謝</span><span class="flow-go"><span class="flow-hint">感謝</span><span class="flow-arrow">›</span></span></li>
+          <li class="flow-item flow-link anim-in" data-step="9" style="animation-delay:.74s" data-page="3" role="button" tabindex="0" aria-label="讓豐盛流動、接收更多，點進去看"><span class="flow-num">9</span><span class="flow-name">讓豐盛流動、接收更多</span><span class="flow-go"><span class="flow-hint">祝福</span><span class="flow-arrow">›</span></span></li>
+          <li class="flow-item flow-link anim-in" data-step="10" style="animation-delay:.82s" data-page="4" role="button" tabindex="0" aria-label="回饋與感謝，點進去看"><span class="flow-num">10</span><span class="flow-name">回饋與感謝</span><span class="flow-go"><span class="flow-hint">感謝</span><span class="flow-arrow">›</span></span></li>
         </ol>
       </div>
 
@@ -2411,7 +2412,7 @@ body:not(.is-home) .village{
    活動步驟：
    1 為什麼我們今天要相聚 / 2 安定下來，進入豐盛冥想 / 3 圈選我的豐盛接收地圖 / 4 第一輪｜同色豐盛交流
    5 寫下一句本週接收練習 / 6 稍作休息 / 7 抽豐盛提醒卡，準備換組 / 8 第二輪｜不同色豐盛交流
-   9 讓祝福在人與人之間流動 / 10 帶回生活、回饋與感謝
+   9 讓豐盛流動、接收更多 / 10 回饋與感謝
    網站每 5 秒讀取 CSV 第二列第二欄（B2），並保留 localStorage 快取。
  */
 var CONTROL_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1ZKJOzG_A_SggSGf8tTTTu8DroofJJDZe5g7TsnPxriE/gviz/tq?tqx=out:csv&gid=923975375&range=A1:C2';
@@ -2453,8 +2454,8 @@ var ACTIVITY_STEP_NAMES = [
   '稍作休息',
   '抽豐盛提醒卡，準備換組',
   '第二輪｜不同色豐盛交流',
-  '讓祝福在人與人之間流動',
-  '帶回生活、回饋與感謝'
+  '讓豐盛流動、接收更多',
+  '回饋與感謝'
 ];
 var progressLabel = document.getElementById('progressLabel');
 var flowStageStatus = document.getElementById('flowStageStatus');
@@ -2494,7 +2495,7 @@ function nextStageText(){
 function onlyNeedText(){
   if(currentActivityStep < 4) return '先安定下來，跟著現場引導';
   if(currentActivityStep < 8) return '停在第一輪，慢慢聽也慢慢說';
-  if(currentActivityStep < 10) return '讓祝福在人與人之間流動';
+  if(currentActivityStep < 10) return '讓豐盛流動、接收更多';
   return '帶著今天收到的豐盛，回到生活';
 }
 function openRoundText(){
