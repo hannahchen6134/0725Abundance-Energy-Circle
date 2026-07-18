@@ -2252,7 +2252,7 @@ body.map-guide-open{ overflow:hidden; }
 .map-guide-instructions{
   margin:20px auto 0;
   display:grid;
-  gap:8px;
+  gap:0;
   max-width:430px;
   text-align:left;
 }
@@ -2260,16 +2260,31 @@ body.map-guide-open{ overflow:hidden; }
   display:grid;
   grid-template-columns:24px minmax(0,1fr);
   gap:8px;
-  align-items:start;
+  align-items:center;
+  padding:7px 2px;
   color:var(--brown-deep);
   font-size:14.5px;
-  line-height:1.75;
+  line-height:1.6;
+}
+.map-guide-instruction + .map-guide-instruction{
+  border-top:1px solid rgba(199,154,78,.18);
 }
 .map-guide-symbol{
+  width:22px;
+  height:22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:7px;
+  background:rgba(255,252,245,.78);
   font-family:var(--font-serif);
   color:var(--gold-deep);
   font-weight:700;
   text-align:center;
+}
+.map-guide-instruction:nth-child(2) .map-guide-symbol{
+  background:rgba(199,154,78,.13);
+  color:#a56f22;
 }
 .map-guide-note{ margin-top:7px; font-size:12.5px; color:var(--brown-soft); }
 .map-guide-grid{
@@ -2333,11 +2348,12 @@ body.map-guide-open{ overflow:hidden; }
   .map-guide-dialog .eyebrow{ margin-bottom:4px; font-size:10.5px; letter-spacing:.17em; }
   .map-guide-title{ font-size:22px; line-height:1.32; letter-spacing:.012em; text-shadow:none; }
   .map-guide-lead{ margin-top:5px; font-size:12px; }
-  .map-guide-instructions{ width:min(100%, 260px); margin-top:11px; gap:3px; }
-  .map-guide-instruction{ grid-template-columns:18px minmax(0,1fr); gap:5px; font-size:12px; line-height:1.55; }
-  .map-guide-symbol{ font-size:12.5px; }
-  .map-guide-note{ margin-top:3px; font-size:11px; }
-  .map-guide-grid{ width:min(100%, 186px); gap:7px; margin-top:12px; }
+  .map-guide-instructions{ width:min(100%, 260px); margin-top:9px; gap:0; }
+  .map-guide-instruction{ grid-template-columns:20px minmax(0,1fr); gap:7px; padding:5px 1px; font-size:12px; line-height:1.45; }
+  .map-guide-symbol{ width:19px; height:19px; border-radius:6px; font-size:12px; }
+  .map-guide-instruction + .map-guide-instruction{ border-top-color:rgba(199,154,78,.16); }
+  .map-guide-note{ margin-top:2px; font-size:11px; }
+  .map-guide-grid{ width:min(100%, 186px); gap:7px; margin-top:10px; }
   .map-guide-grid li{
     padding:3px;
     border-color:rgba(176,127,51,.28);
