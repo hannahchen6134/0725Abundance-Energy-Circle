@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -9,6 +9,7 @@
 <meta name="description" content="一場透過冥想、豐盛提醒卡與真實交流，看見生活中的支持，練習接收更多的小聚。">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#f6efe1">
+<link rel="icon" href="data:,">
 <meta property="og:title" content="豐盛能量交流小聚｜初星群 Starry Dawn Circle">
 <meta property="og:site_name" content="初星群 Starry Dawn Circle">
 <meta property="og:description" content="一場透過冥想、豐盛提醒卡與真實交流，看見生活中的支持，練習接收更多的小聚。">
@@ -2179,6 +2180,170 @@ body:not(.is-home) .village{
   .round-reminder,
   .blessing-note{ font-size:13px; }
 }
+@media (max-width:340px){
+  #page-2 .q-list li{ font-size:14px; letter-spacing:0; padding-left:29px; text-wrap:pretty; }
+  #page-4 .feedback-title{ font-size:17px !important; letter-spacing:0; }
+}
+
+/* 交流題目只顯示後台目前進行的輪次，不提供返回上一輪 */
+#page-2 .round-tabs{ display:none !important; }
+
+/* 感謝頁：收緊結語與回饋邀請之間的留白 */
+#page-4 .feedback-invite{
+  margin-top:18px !important;
+  padding-top:12px !important;
+}
+@media (max-width:520px){
+  #page-4 .feedback-invite{
+    margin-top:11px !important;
+    padding-top:7px !important;
+  }
+}
+
+/* ===== 豐盛接收小卡引導 ===== */
+body.map-guide-open{ overflow:hidden; }
+.map-guide-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(74,51,32,.36);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.map-guide-overlay[hidden]{ display:none; }
+.map-guide-dialog{
+  width:min(100%, 520px);
+  max-height:calc(100dvh - 36px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:30px 28px 24px;
+  border:1px solid rgba(199,154,78,.38);
+  border-radius:28px;
+  background:linear-gradient(160deg, rgba(255,253,247,.99), rgba(248,239,220,.99));
+  box-shadow:0 24px 70px rgba(74,51,32,.22), 0 0 0 1px rgba(255,255,255,.6) inset;
+  text-align:center;
+}
+.map-guide-dialog:focus{ outline:none; }
+.map-guide-dialog .eyebrow{ margin-bottom:8px; }
+.map-guide-title{ margin:0; }
+.map-guide-title:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:6px;
+  border-radius:4px;
+}
+.map-guide-lead{ margin-top:8px; font-size:14.5px; color:var(--brown-soft); }
+.map-guide-instructions{
+  margin:20px auto 0;
+  display:grid;
+  gap:8px;
+  max-width:430px;
+  text-align:left;
+}
+.map-guide-instruction{
+  display:grid;
+  grid-template-columns:24px minmax(0,1fr);
+  gap:8px;
+  align-items:start;
+  color:var(--brown-deep);
+  font-size:14.5px;
+  line-height:1.75;
+}
+.map-guide-symbol{
+  font-family:var(--font-serif);
+  color:var(--gold-deep);
+  font-weight:700;
+  text-align:center;
+}
+.map-guide-note{ margin-top:7px; font-size:12.5px; color:var(--brown-soft); }
+.map-guide-grid{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:11px;
+  width:min(100%, 360px);
+  margin:22px auto 0;
+}
+.map-guide-grid li{
+  min-width:0;
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px;
+  border:1px solid rgba(176,127,51,.52);
+  border-radius:50%;
+  background:rgba(255,250,240,.84);
+  box-shadow:0 5px 16px rgba(176,127,51,.08), 0 0 0 1px rgba(255,255,255,.7) inset;
+  color:var(--brown-deep);
+  font-family:var(--font-serif);
+  font-size:clamp(14px, 4vw, 17px);
+  font-weight:600;
+  line-height:1.35;
+  cursor:default;
+  user-select:none;
+}
+.map-guide-writing{
+  margin:22px auto 0;
+  padding:17px 18px;
+  max-width:430px;
+  border-top:1px solid rgba(199,154,78,.26);
+  border-bottom:1px solid rgba(199,154,78,.20);
+  text-align:left;
+}
+.map-guide-writing h3{ font-size:15px; color:var(--gold-deep); }
+.map-guide-sentence{ margin-top:7px; color:var(--brown-deep); font-family:var(--font-serif); font-size:15.5px; font-weight:600; }
+.map-guide-example{ margin-top:7px; font-size:13.5px; color:var(--brown-text); }
+.map-guide-small{ margin-top:3px; font-size:12.5px; color:var(--brown-soft); }
+.map-guide-actions{ margin-top:22px; text-align:center; }
+.map-guide-actions .btn{ min-width:180px; }
+.map-guide-actions .btn-link{ display:block; margin:12px auto 0; }
+.map-guide-overlay button:focus-visible,
+.map-guide-link:focus-visible{
+  outline:2px solid var(--gold-deep);
+  outline-offset:4px;
+}
+@media (max-width:430px){
+  .map-guide-overlay{ padding:10px 12px; align-items:flex-start; }
+  .map-guide-dialog{
+    width:min(100%, 360px);
+    margin:auto 0;
+    max-height:calc(100dvh - 20px);
+    padding:21px 17px 17px;
+    border-radius:23px;
+    border-color:rgba(199,154,78,.30);
+    box-shadow:0 20px 58px rgba(74,51,32,.18), 0 0 0 1px rgba(255,255,255,.72) inset;
+  }
+  .map-guide-lead{ font-size:13.5px; }
+  .map-guide-instructions{ width:min(100%, 300px); margin-top:15px; gap:5px; }
+  .map-guide-instruction{ grid-template-columns:21px minmax(0,1fr); gap:7px; font-size:13px; line-height:1.65; }
+  .map-guide-note{ margin-top:5px; font-size:12px; }
+  .map-guide-grid{ width:min(100%, 252px); gap:10px; margin-top:17px; }
+  .map-guide-grid li{
+    padding:5px;
+    border-color:rgba(176,127,51,.40);
+    background:linear-gradient(145deg, rgba(255,252,245,.92), rgba(249,240,222,.72));
+    box-shadow:0 6px 18px rgba(176,127,51,.055), 0 0 0 1px rgba(255,255,255,.78) inset;
+    font-size:13.5px;
+    font-weight:550;
+    letter-spacing:.025em;
+  }
+  .map-guide-writing{ width:min(100%, 300px); margin-top:17px; padding:13px 7px; }
+  .map-guide-writing h3{ font-size:14.5px; }
+  .map-guide-sentence{ margin-top:5px; font-size:14.5px; }
+  .map-guide-example{ margin-top:5px; font-size:13px; }
+  .map-guide-small{ font-size:12px; }
+  .map-guide-actions{ margin-top:17px; }
+  .map-guide-actions .btn{ min-width:168px; padding-top:12px; padding-bottom:12px; font-size:15px; }
+}
+@media (max-width:340px){
+  .map-guide-dialog{ padding-left:15px; padding-right:15px; }
+  .map-guide-grid{ width:min(100%, 246px); gap:9px; }
+  .map-guide-grid li{ padding:4px; font-size:13px; }
+}
 </style>
 </head>
 <body class="is-home">
@@ -2263,14 +2428,14 @@ body:not(.is-home) .village{
         <ol class="flow">
           <li class="flow-item anim-in" data-step="1" style="animation-delay:.10s"><span class="flow-num">1</span><span class="flow-name">為什麼我們今天要相聚</span></li>
           <li class="flow-item anim-in" data-step="2" style="animation-delay:.18s"><span class="flow-num">2</span><span class="flow-name">安定下來，進入豐盛冥想</span></li>
-          <li class="flow-item anim-in" data-step="3" style="animation-delay:.26s"><span class="flow-num">3</span><span class="flow-name">圈選我的豐盛接收地圖</span></li>
+          <li class="flow-item flow-link map-guide-link anim-in" data-step="3" data-action="open-abundance-map" style="animation-delay:.26s" role="button" tabindex="0" aria-label="查看豐盛接收小卡使用方式"><span class="flow-num">3</span><span class="flow-name">圈選我的豐盛接收地圖</span><span class="flow-go"><span class="flow-hint">小卡</span><span class="flow-arrow">›</span></span></li>
           <li class="flow-item flow-link anim-in" data-step="4" style="animation-delay:.34s" data-round="0" role="button" tabindex="0" aria-label="第一輪同色豐盛交流，點進去看題目"><span class="flow-num">4</span><span class="flow-name">第一輪｜同色豐盛交流</span><span class="flow-go"><span class="flow-hint">題目</span><span class="flow-arrow">›</span></span></li>
           <li class="flow-item anim-in" data-step="5" style="animation-delay:.42s"><span class="flow-num">5</span><span class="flow-name">寫下一句本週接收練習</span></li>
-          <li class="flow-item anim-in" data-step="6" style="animation-delay:.50s"><span class="flow-num">6</span><span class="flow-name">稍作休息</span></li>
+          <li class="flow-item anim-in" data-step="6" style="animation-delay:.50s"><span class="flow-num">6</span><span class="flow-name">中場休息補充能量</span></li>
           <li class="flow-item anim-in" data-step="7" style="animation-delay:.58s"><span class="flow-num">7</span><span class="flow-name">抽豐盛提醒卡，準備換組</span></li>
           <li class="flow-item flow-link anim-in" data-step="8" style="animation-delay:.66s" data-round="1" role="button" tabindex="0" aria-label="第二輪不同色豐盛交流，點進去看題目"><span class="flow-num">8</span><span class="flow-name">第二輪｜不同色豐盛交流</span><span class="flow-go"><span class="flow-hint">題目</span><span class="flow-arrow">›</span></span></li>
-          <li class="flow-item flow-link anim-in" data-step="9" style="animation-delay:.74s" data-page="3" role="button" tabindex="0" aria-label="讓祝福在人與人之間流動，點進去看"><span class="flow-num">9</span><span class="flow-name">讓祝福在人與人之間流動</span><span class="flow-go"><span class="flow-hint">祝福</span><span class="flow-arrow">›</span></span></li>
-          <li class="flow-item flow-link anim-in" data-step="10" style="animation-delay:.82s" data-page="4" role="button" tabindex="0" aria-label="帶回生活、回饋與感謝，點進去看"><span class="flow-num">10</span><span class="flow-name">帶回生活、回饋與感謝</span><span class="flow-go"><span class="flow-hint">感謝</span><span class="flow-arrow">›</span></span></li>
+          <li class="flow-item flow-link anim-in" data-step="9" style="animation-delay:.74s" data-page="3" role="button" tabindex="0" aria-label="讓豐盛流動、接收更多，點進去看"><span class="flow-num">9</span><span class="flow-name">讓豐盛流動、接收更多</span><span class="flow-go"><span class="flow-hint">祝福</span><span class="flow-arrow">›</span></span></li>
+          <li class="flow-item flow-link anim-in" data-step="10" style="animation-delay:.82s" data-page="4" role="button" tabindex="0" aria-label="回饋與感謝，點進去看"><span class="flow-num">10</span><span class="flow-name">回饋與感謝</span><span class="flow-go"><span class="flow-hint">感謝</span><span class="flow-arrow">›</span></span></li>
         </ol>
       </div>
 
@@ -2308,7 +2473,7 @@ body:not(.is-home) .village{
               <li>最近有哪一份豐盛出現在我的生活裡？</li>
               <li>當它出現時，我當下怎麼回應？</li>
             </ol>
-            <p class="round-reminder">題目只是方向，不需要逐題回答。<br>分享後，組員可以簡短送出一句隨喜、看見或祝福。</p>
+            <p class="round-reminder">若時間不夠不需要都回答完畢哦<br>分享後，組員可以簡短送出一句隨喜、看見或祝福。</p>
           </div>
           <div class="btn-wrap round-back-wrap round-back-1">
             <button class="btn-link" data-go="1" aria-label="回今日流程">← 回今日流程</button>
@@ -2326,9 +2491,7 @@ body:not(.is-home) .village{
             </ol>
             <p class="round-reminder">分享後，可以送給對方一句：<br>「願你這週能安心接收＿＿。」</p>
           </div>
-          <div class="btn-wrap round-next-wrap">
-            <button class="btn" data-go="3" data-label-open="進入祝福流動" data-label-locked="祝福流動尚未開放" aria-label="進入祝福流動">進入祝福流動 <span class="arrow">→</span></button>
-          </div>
+
           <div class="btn-wrap round-back-wrap round-back-2">
             <button class="btn-link" data-go="1" aria-label="回今日流程">← 回今日流程</button>
           </div>
@@ -2341,7 +2504,7 @@ body:not(.is-home) .village{
     <div class="inner">
       <div class="center fade-in">
         <span class="eyebrow">Share</span>
-        <h2>讓祝福在人與人之間流動</h2>
+        <h2>讓豐盛流動、接收更多</h2>
         <div class="divider"></div>
         <p class="muted center">請在豐盛提醒卡背面，<br>寫下一句送給另一位參加者的祝福。</p>
       </div>
@@ -2374,12 +2537,9 @@ body:not(.is-home) .village{
         <h2>感謝你帶來的豐盛</h2>
         <div class="divider"></div>
         <p>謝謝你今天來到這裡，<br>真誠分享，也好好聽見了彼此。</p>
-        <p>願今天收到的祝福與豐盛，<br>慢慢回到接下來的生活裡。</p>
-                <div class="closing-seal">願今天收到的豐盛，慢慢回到生活裡。</div>
         <div class="feedback-invite">
           <span class="feedback-kicker">離開前的小邀請</span>
           <h3 class="feedback-title">如果還沒填，歡迎留下今日回饋</h3>
-          <p class="feedback-copy">留下此刻最真實的一點感受，就已經很珍貴。</p>
           <!-- 可修改區塊 2｜Google 表單連結（請把 # 換成你的表單網址） -->
           <a class="btn closing-feedback" href="https://forms.gle/2qUG2WenPkSGqX5F6" target="_blank" rel="noopener noreferrer" data-form-link>填寫今日回饋表單 <span class="arrow">→</span></a>
         </div>
@@ -2387,11 +2547,10 @@ body:not(.is-home) .village{
         <div class="community-links" aria-label="活動後連結">
           <a class="community-link-card" href="https://reurl.cc/k85pV3" target="_blank" rel="noopener noreferrer">
             <span class="community-link-title">加入初星群</span>
-            <span class="community-link-copy">讓今天的豐盛連結，在活動後繼續流動。</span>
           </a>
           <a class="community-link-card" href="https://line.me/R/ti/p/@455ojikt" target="_blank" rel="noopener noreferrer" data-line-link>
             <span class="community-link-title">加入官方 LINE</span>
-            <span class="community-link-copy">之後的活動通知與本次活動交流資訊，會優先在這裡分享給你。</span>
+            <span class="community-link-copy">最新活動及服務通知都分享在這</span>
           </a>
         </div>
       <!-- 可修改區塊 4｜頁尾署名 -->
@@ -2405,13 +2564,52 @@ body:not(.is-home) .village{
 
 </main>
 
+<!-- ===== 豐盛接收小卡使用引導（不新增主頁與進度點） ===== -->
+<div class="map-guide-overlay" id="abundanceMapGuide" role="dialog" aria-modal="true" aria-labelledby="abundanceMapGuideTitle" hidden>
+  <div class="map-guide-dialog" role="document">
+    <span class="eyebrow">Receive</span>
+    <h2 class="map-guide-title" id="abundanceMapGuideTitle" tabindex="-1">豐盛接收小卡</h2>
+    <p class="map-guide-lead">請拿出你的豐盛接收小卡。</p>
+
+    <div class="map-guide-instructions">
+      <p class="map-guide-instruction"><span class="map-guide-symbol" aria-hidden="true">○</span><span>圈出最近已經出現在生活裡的豐盛。</span></p>
+      <p class="map-guide-instruction"><span class="map-guide-symbol" aria-hidden="true">★</span><span>再選出這週想接收更多的豐盛。</span></p>
+    </div>
+    <p class="map-guide-note">兩項可以相同，也可以不同。</p>
+
+    <ul class="map-guide-grid" aria-label="紙本小卡九宮格項目">
+      <li>金錢</li>
+      <li>新機會</li>
+      <li>有人幫忙</li>
+      <li>讚美</li>
+      <li>被看見</li>
+      <li>關係</li>
+      <li>休息</li>
+      <li>身體</li>
+      <li>靈感</li>
+    </ul>
+
+    <div class="map-guide-writing">
+      <h3>翻到小卡背面</h3>
+      <p class="map-guide-sentence">這週，我想練習接收更多：</p>
+      <p class="map-guide-example">例如：被稱讚時，先說「謝謝」。</p>
+      <p class="map-guide-small">只留一句，不需要寫成心得。</p>
+    </div>
+
+    <div class="map-guide-actions">
+      <button class="btn" type="button" data-close-abundance-map>我選好了</button>
+      <button class="btn-link" type="button" data-close-abundance-map>← 回今日流程</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ===== 活動開放控制 =====
    Google Sheet 後台：在 B2 下拉選擇目前活動步驟 1–10。
    活動步驟：
    1 為什麼我們今天要相聚 / 2 安定下來，進入豐盛冥想 / 3 圈選我的豐盛接收地圖 / 4 第一輪｜同色豐盛交流
-   5 寫下一句本週接收練習 / 6 稍作休息 / 7 抽豐盛提醒卡，準備換組 / 8 第二輪｜不同色豐盛交流
-   9 讓祝福在人與人之間流動 / 10 帶回生活、回饋與感謝
+   5 寫下一句本週接收練習 / 6 中場休息補充能量 / 7 抽豐盛提醒卡，準備換組 / 8 第二輪｜不同色豐盛交流
+   9 讓豐盛流動、接收更多 / 10 回饋與感謝
    網站每 5 秒讀取 CSV 第二列第二欄（B2），並保留 localStorage 快取。
  */
 var CONTROL_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1ZKJOzG_A_SggSGf8tTTTu8DroofJJDZe5g7TsnPxriE/gviz/tq?tqx=out:csv&gid=923975375&range=A1:C2';
@@ -2450,11 +2648,11 @@ var ACTIVITY_STEP_NAMES = [
   '圈選我的豐盛接收地圖',
   '第一輪｜同色豐盛交流',
   '寫下一句本週接收練習',
-  '稍作休息',
+  '中場休息補充能量',
   '抽豐盛提醒卡，準備換組',
   '第二輪｜不同色豐盛交流',
-  '讓祝福在人與人之間流動',
-  '帶回生活、回饋與感謝'
+  '讓豐盛流動、接收更多',
+  '回饋與感謝'
 ];
 var progressLabel = document.getElementById('progressLabel');
 var flowStageStatus = document.getElementById('flowStageStatus');
@@ -2480,7 +2678,11 @@ function roundRequiredStep(roundIndex){
   return 10;
 }
 function canOpenPage(pageIndex){ return pageRequiredStep(pageIndex) <= currentActivityStep; }
-function canOpenRound(roundIndex){ return roundRequiredStep(roundIndex) <= currentActivityStep; }
+function canOpenRound(roundIndex){
+  if(roundIndex === 0) return currentActivityStep >= 4 && currentActivityStep < 8;
+  if(roundIndex === 1) return currentActivityStep >= 8;
+  return false;
+}
 function stageText(){
   return ACTIVITY_STEP_NAMES[Math.max(1, Math.min(10, currentActivityStep))] || '現場流程';
 }
@@ -2494,12 +2696,12 @@ function nextStageText(){
 function onlyNeedText(){
   if(currentActivityStep < 4) return '先安定下來，跟著現場引導';
   if(currentActivityStep < 8) return '停在第一輪，慢慢聽也慢慢說';
-  if(currentActivityStep < 10) return '讓祝福在人與人之間流動';
+  if(currentActivityStep < 10) return '讓豐盛流動、接收更多';
   return '帶著今天收到的豐盛，回到生活';
 }
 function openRoundText(){
-  if(currentActivityStep >= 8) return '目前開放：第一輪、第二輪';
-  if(currentActivityStep >= 4) return '目前開放：第一輪';
+  if(currentActivityStep >= 8) return '目前進行：第二輪';
+  if(currentActivityStep >= 4) return '目前進行：第一輪';
   return '交流題目尚未開放';
 }
 function updateButtonLabel(el, open){
@@ -2561,6 +2763,14 @@ function goTo(i){
   i = Math.max(0, Math.min(pages.length - 1, i));
   if(!canOpenPage(i)){ showLockedMessage(); syncLocks(); return; }
   currentPage = i;
+  if(i === 2){
+    currentRound = currentActivityStep >= 8 ? 1 : 0;
+    document.querySelectorAll('.round-tab').forEach(function(t, idx){
+      t.classList.toggle('active', idx === currentRound);
+      t.setAttribute('aria-selected', idx === currentRound ? 'true' : 'false');
+    });
+    document.querySelectorAll('.round-panel').forEach(function(p, idx){ p.classList.toggle('active', idx === currentRound); });
+  }
   pages.forEach(function(p, idx){ p.classList.toggle('active', idx === i); });
   dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
   if(progressLabel){ progressLabel.textContent = pageLabelText(); }
@@ -2592,7 +2802,7 @@ document.querySelectorAll('.round-tab').forEach(function(tab){
 });
 
 /* ===== 今日旅程指引：可直接點進對應頁的步驟 ===== */
-document.querySelectorAll('.flow-link').forEach(function(item){
+document.querySelectorAll('.flow-link:not(.map-guide-link)').forEach(function(item){
   function activate(){
     var step = parseInt(item.getAttribute('data-step') || '0', 10);
     if(step && step > currentActivityStep){ showLockedMessage(); syncLocks(); return; }
@@ -2611,6 +2821,73 @@ document.querySelectorAll('.flow-link').forEach(function(item){
     if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(); }
   });
 });
+
+/* ===== 豐盛接收小卡引導 ===== */
+var abundanceMapGuide = document.getElementById('abundanceMapGuide');
+var abundanceMapGuideTitle = document.getElementById('abundanceMapGuideTitle');
+var abundanceMapGuideTrigger = document.querySelector('[data-action="open-abundance-map"]');
+
+function setAbundanceMapBackgroundInert(isInert){
+  document.querySelectorAll('.viewport, .progress').forEach(function(el){
+    if(isInert){
+      el.setAttribute('inert', '');
+      el.setAttribute('aria-hidden', 'true');
+    }else{
+      el.removeAttribute('inert');
+      el.removeAttribute('aria-hidden');
+    }
+  });
+}
+
+function openAbundanceMapGuide(){
+  if(currentActivityStep < 3){ showLockedMessage(); syncLocks(); return; }
+  if(!abundanceMapGuide || !abundanceMapGuideTrigger) return;
+  abundanceMapGuide.hidden = false;
+  document.body.classList.add('map-guide-open');
+  setAbundanceMapBackgroundInert(true);
+  requestAnimationFrame(function(){ abundanceMapGuideTitle.focus(); });
+}
+
+function closeAbundanceMapGuide(){
+  if(!abundanceMapGuide || abundanceMapGuide.hidden) return;
+  abundanceMapGuide.hidden = true;
+  document.body.classList.remove('map-guide-open');
+  setAbundanceMapBackgroundInert(false);
+  goTo(1);
+  setTimeout(function(){ abundanceMapGuideTrigger.focus(); }, 0);
+}
+
+if(abundanceMapGuideTrigger){
+  abundanceMapGuideTrigger.addEventListener('click', openAbundanceMapGuide);
+  abundanceMapGuideTrigger.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openAbundanceMapGuide(); }
+  });
+}
+if(abundanceMapGuide){
+  abundanceMapGuide.addEventListener('click', function(e){
+    if(e.target === abundanceMapGuide){ closeAbundanceMapGuide(); }
+  });
+  abundanceMapGuide.querySelectorAll('[data-close-abundance-map]').forEach(function(button){
+    button.addEventListener('click', closeAbundanceMapGuide);
+  });
+  abundanceMapGuide.addEventListener('keydown', function(e){
+    if(e.key !== 'Tab') return;
+    var focusable = Array.from(abundanceMapGuide.querySelectorAll('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'));
+    if(!focusable.length){ e.preventDefault(); abundanceMapGuideTitle.focus(); return; }
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if(e.shiftKey && (document.activeElement === first || document.activeElement === abundanceMapGuideTitle)){
+      e.preventDefault(); last.focus();
+    }else if(!e.shiftKey && document.activeElement === last){
+      e.preventDefault(); first.focus();
+    }
+  });
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && abundanceMapGuide && !abundanceMapGuide.hidden){
+    e.preventDefault(); closeAbundanceMapGuide();
+  }
+});
 function applyRemoteStage(value){
   var next = normalizeStageValue(value);
   if(next === null) return;
@@ -2621,13 +2898,11 @@ function applyRemoteStage(value){
     pendingHashPage = null;
     if(canOpenPage(requestedPage)){ goTo(requestedPage); return; }
   }
-  if(currentPage === 2 && !canOpenRound(currentRound)){
+  if(currentPage === 2){
     if(currentActivityStep < 4){
       goTo(1);
-    }else if(currentActivityStep < 8){
-      selectRound(0);
     }else{
-      selectRound(1);
+      selectRound(currentActivityStep >= 8 ? 1 : 0);
     }
   }
   if(!canOpenPage(currentPage)){
