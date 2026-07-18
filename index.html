@@ -2679,6 +2679,7 @@ var flowNextText = document.getElementById('flowNextText');
 var flowOnlyText = document.getElementById('flowOnlyText');
 var currentPage = 0;
 var currentRound = 0;
+var manualRoundReview = null;
 var toastTimer = null;
 var pendingHashPage = null;
 
@@ -2776,12 +2777,19 @@ function syncLocks(){
   if(flowOnlyText){ flowOnlyText.textContent = onlyNeedText(); }
 }
 
-function goTo(i){
+function goTo(i, preferredRound){
   i = Math.max(0, Math.min(pages.length - 1, i));
   if(!canOpenPage(i)){ showLockedMessage(); syncLocks(); return; }
+  if(i !== 2){
+    manualRoundReview = null;
+  }else if(typeof preferredRound === 'number' && canOpenRound(preferredRound)){
+    manualRoundReview = preferredRound;
+  }
   currentPage = i;
   if(i === 2){
-    currentRound = currentActivityStep >= 8 ? 1 : 0;
+    currentRound = manualRoundReview !== null && canOpenRound(manualRoundReview)
+      ? manualRoundReview
+      : (currentActivityStep >= 8 ? 1 : 0);
     document.querySelectorAll('.round-tab').forEach(function(t, idx){
       t.classList.toggle('active', idx === currentRound);
       t.setAttribute('aria-selected', idx === currentRound ? 'true' : 'false');
@@ -2828,7 +2836,7 @@ document.querySelectorAll('.flow-link:not(.map-guide-link)').forEach(function(it
     if(round !== null){
       var roundIndex = parseInt(round,10);
       if(!canOpenRound(roundIndex)){ showLockedMessage(); syncLocks(); return; }
-      goTo(2);
+      goTo(2, roundIndex);
       selectRound(roundIndex);
     }
     else if(page !== null){ goTo(parseInt(page,10)); }
@@ -2919,7 +2927,10 @@ function applyRemoteStage(value){
     if(currentActivityStep < 4){
       goTo(1);
     }else{
-      selectRound(currentActivityStep >= 8 ? 1 : 0);
+      if(manualRoundReview !== null && !canOpenRound(manualRoundReview)){
+        manualRoundReview = null;
+      }
+      selectRound(manualRoundReview !== null ? manualRoundReview : (currentActivityStep >= 8 ? 1 : 0));
     }
   }
   if(!canOpenPage(currentPage)){
